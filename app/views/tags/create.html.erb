@@ -1,2 +1,21 @@
-<h1>Tags#create</h1>
-<p>Find me in app/views/tags/create.html.erb</p>
+<div class="col-xs-12 col-md-8 col-lg-8">
+
+<% if @tag.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@tag.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @tag.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+	<%= form_for @tag do |f| %>
+		<%= f.label :name, class:'' %>
+		<%= f.text_field :name, class:'' %>
+		<%= f.submit 'Submit Create', class:'btn btn-default' %>
+	<% end %>
+</div>

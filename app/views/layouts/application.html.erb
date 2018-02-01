@@ -12,20 +12,10 @@
   <body>
 		<div class="container">
 		    <div class="row">
-		        <div class="col-xs-12 col-md-4 col-lg-4">
-		            <div id="brand">
-		                <p>niyazi</p><br />
-		                <p>tanyıldız</p>
-		            </div>
-		            <div class="clearfix"></div>
-		            <div id="sidebar">
-		                <ul class="category">
-		                	<% tag.each do |f| %>
-		                    	<li><%= link_to f.name, tags_path(params[:id]) %></li>
-		                    <% end %>
-		                </ul>
-		            </div>
-		        </div>
-  	<%= yield %>
+		    	<%= render 'partials/sidebar' %>
+				  <%= yield %>
+			</div>
+
+		</div>
   </body>
 </html>

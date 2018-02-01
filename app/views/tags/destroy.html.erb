@@ -1,2 +1,6 @@
-<h1>Tags#destroy</h1>
-<p>Find me in app/views/tags/destroy.html.erb</p>
+<div class="col-xs-12 col-md-8 col-lg-8">
+	<%= @tag do |f| %>
+	<%= f.name %>
+	<%= redirect_to tags_path(tag) %>
+	<% end %>
+</div>

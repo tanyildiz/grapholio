@@ -8,11 +8,13 @@ body {
     color:gray;
 }
 
-#brand {
+#brand a {
     font-size: 4em;
-    line-height: 20px;
+    line-height: 50px;
     font-weight: 200;
     float:left;
+    color: gray;
+    text-decoration: none;
 }
 
 #sidebar {

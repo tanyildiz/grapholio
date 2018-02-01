@@ -1,4 +1,19 @@
-<% form_for @tagEdit do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+<% if @tag.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@tag.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @tag.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
+
+<div class="col-xs-12 col-md-8 col-lg-8">
+	<% @tag do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	<% end %>
+</div>

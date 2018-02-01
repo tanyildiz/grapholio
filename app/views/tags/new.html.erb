@@ -1,5 +1,21 @@
-<%= form_for @tagCreate do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.submit 'Submit' %>
+<div class="col-xs-12 col-md-8 col-lg-8">
+
+
+<% if @tag.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@tag.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @tag.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
+
+	<%= form_for @tag do |f| %>
+		<%= f.text_field :name %>
+		<%= f.submit 'Submit New' %>
+	<% end %>
+</div>
