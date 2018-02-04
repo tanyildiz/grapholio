@@ -11,11 +11,7 @@
     <% end %>
     </ul>
   </div>
-<% end %>
-
-	<%= form_for @tag do |f| %>
-		<%= f.label :name, class:'' %>
-		<%= f.text_field :name, class:'' %>
-		<%= f.submit 'Submit Create', class:'btn btn-default' %>
-	<% end %>
+<% end %> <br />
+		<%= text_field_tag @tag.name %>
+		<button class='btn btn-default'><%= link_to 'Submit Create', tags_path %></button>
 </div>

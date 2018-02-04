@@ -1,17 +1,5 @@
 <div class="col-xs-12 col-md-8 col-lg-8">
 
-<% if @tag.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@tag.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @tag.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
 
 	<table class="table table-striped">
 		<thead>
@@ -29,10 +17,10 @@
 			<tr>
 				<td><%= tag.id %></td>
 				<td><%= tag.name %></td>
-				<td><%= link_to 'UPDATE', tags_update_path %></td>
-				<td><%= link_to 'SHOW', tags_show_path %></td>
-				<td><%= link_to 'EDIT', tags_edit_path(:id) %></td>
-				<td><%= link_to 'DELETE', tags_destroy_path, data: {confirm: 'Are you sure?'}, class:'btn button-danger' %></td>
+				<td><%= link_to 'NEW', new_tag_path %></td>
+				<td><%= link_to 'SHOW', tag %></td>
+				<td><%= link_to 'EDIT', edit_tag_path(tag) %></td>
+				<td><button class="btn button-danger"><%= link_to 'DELETE', tag, method: :delete, data: {confirm: 'Are you sure?'} %></button></td>
 				</td>
 			</tr>
 			<% end %>

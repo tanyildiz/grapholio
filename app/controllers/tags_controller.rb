@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
 
+  before_action :tag_params, only: [:create, :new, :edit, :update]
+
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
@@ -13,11 +15,18 @@ class TagsController < ApplicationController
 
   def update
     @tag = Tag.find(params[:id])
-    @tag.save
+    if @tag.update(tag_params)
+      flash[:notice] = "Updated"
+      redirect_to tag_path
+    else
+      flash[:alert] = "Error occured"
+      render 'edit'
+    end
   end
 
   def new
     @tag = Tag.new
+    @work = Work.all
   end
 
   def edit
@@ -28,7 +37,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @tag.destroy
     flash[:notice] = "Deleted"
-    redirect_to tags_show_path
+    redirect_to tags_path
   end
 
   def show
@@ -37,12 +46,11 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
-    @tag = Tag.find(tag_params)
   end
 
   private
   def tag_params
-    params.permit(:name)
+    params.permit(:name, :id)
   end
 
 end

@@ -13,9 +13,10 @@
     </ul>
   </div>
 <% end %>
-
-	<%= form_for @tag do |f| %>
+<div style="width:100%">
+    <%= form_for @tag do |f| %>
 		<%= f.text_field :name %>
-		<%= f.submit 'Submit New' %>
-	<% end %>
+		<%= f.submit 'OK', class:'btn btn-success' %>
+    <% end %>
+</div>
 </div>
