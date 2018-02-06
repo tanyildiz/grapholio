@@ -1,2 +1,34 @@
-<h1>Works#new</h1>
-<p>Find me in app/views/works/new.html.erb</p>
+<div class="col-xs-12 col-md-8 col-lg-8">
+
+
+<% if @work.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@work.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @work.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div style="width:100%">
+    <%= form_for @work do |f| %>
+    	<%= f.label :title %><br />
+		<%= f.text_field :title %><br />
+
+		<%= f.label :image %><br />
+		<%= f.text_field :image %><br />
+
+		<%= f.label :description %><br />
+		<%= f.text_area :description%><br />
+
+		<%= f.label :tag %><br />
+		<%= f.collection_select :tag_id, Tag.all, :id, :name, prompt: true %><br />
+
+		<%= f.submit 'OK', class:'btn btn-success' %>
+    <% end %>
+</div>
+</div>
+

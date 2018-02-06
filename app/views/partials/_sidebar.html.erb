@@ -5,8 +5,8 @@
     <div class="clearfix"></div>
     <div id="sidebar">
         <ul class="category">
-        	<% tag.each do |f| %>
-            	<li><%= link_to f.name, tags_path(params[:id]) %></li>
+        	<% @tags.each do |tag| %>
+            	<li><%= link_to tag.name, tags_path(params[:id]) %></li>
             <% end %>
         </ul>
     </div>

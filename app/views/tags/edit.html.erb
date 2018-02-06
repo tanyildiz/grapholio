@@ -12,7 +12,8 @@
       </ul>
     </div>
   <% end %>
-
-		<%= text_field_tag @tag.name %>
-    <button><%= link_to "OK", tags_path%></button>
+    <%= form_for @tag do |tag| %>
+  		<%= tag.text_field :name %>
+      <%= tag.submit "Update" %>
+    <% end %>
 </div>

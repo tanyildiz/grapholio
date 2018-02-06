@@ -1,1 +1,12 @@
-works#index
+<div class="col-xs-12 col-md-8 col-lg-8">
+
+	<% @works.each do |work| %>
+        <div id="work" class="works">
+            <%= link_to(image_tag(work.image)) %><br />
+            <div>
+            <%= link_to "Edit", edit_work_path(work) %>
+            <%= link_to "Destroy", work, method: :delete, data: {confirm: 'Are you sure?'} %>
+            </div>
+        </div>
+    <% end %>
+</div>

@@ -1,2 +1,10 @@
-<h1>Works#edit</h1>
-<p>Find me in app/views/works/edit.html.erb</p>
+<div class="col-xs-12 col-md-8 col-lg-8">
+	<%= form_for @work do |work| %>
+        <div id="work" class="works">
+        	<%= work.text_field :title %> <br />
+        	<%= work.text_area :description %> <br />
+        	<%= work.text_field :image %> <br />
+            <%= work.submit "Update" %>
+        </div>
+    <% end %>
+</div>

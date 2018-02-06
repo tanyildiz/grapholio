@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	tag = Tag.all
+  	@tags = Tag.all
+  	@works = Work.all
   end
 end
